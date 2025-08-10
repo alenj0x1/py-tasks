@@ -123,11 +123,11 @@ import argparse
 class TaskInterpreter:
     def __init__(self):
         # User input interpreter
-        self.parser = argparse.ArgumentParser(description="Task Manager v1")
+        self.parser = argparse.ArgumentParser(description="Task Tracker")
         subparsers = self.parser.add_subparsers(dest="command", required=True)
 
         # add
-        add_parser = subparsers.add_parser("add", help="Add a new task")
+        add_parser = subparsers.add_parser("add", help="Add a new task.")
         add_parser.add_argument(
             "descriptor",
             help="Task descriptor. Example: Complete project integration",
@@ -135,7 +135,9 @@ class TaskInterpreter:
         )
 
         # list
-        list_parser = subparsers.add_parser("list", help="List all tasks")
+        list_parser = subparsers.add_parser(
+            "list", help="List all previously created tasks."
+        )
         list_parser.add_argument(
             "--status",
             type=str,
@@ -145,7 +147,8 @@ class TaskInterpreter:
 
         # mark
         mark_parser = subparsers.add_parser(
-            "mark", help=f"Mark a task as: {[status.name for status in TaskStatus]}"
+            "mark",
+            help=f"Change the status of a task: : {[status.name for status in TaskStatus]}",
         )
         mark_parser.add_argument(
             "id",
@@ -160,14 +163,16 @@ class TaskInterpreter:
         )
 
         # update
-        update_parser = subparsers.add_parser("update", help="Update a task")
+        update_parser = subparsers.add_parser(
+            "update", help="Update the descriptor of a task."
+        )
         update_parser.add_argument("id", type=int, help="Task id")
         update_parser.add_argument(
             "descriptor", type=str, help="Task descriptor", nargs=argparse.REMAINDER
         )
 
         # remove
-        remove_parser = subparsers.add_parser("remove", help="Remove a new task")
+        remove_parser = subparsers.add_parser("remove", help="Remove a task.")
         remove_parser.add_argument("id", type=int, help="Task id")
 
     def args(self):
