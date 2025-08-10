@@ -1,4 +1,4 @@
-# Task Tracker
+# py-tasks
 
 A minimal task manager from the terminal
 
@@ -10,7 +10,7 @@ A minimal task manager from the terminal
 2. Task can be filtered using the `--status` argument in the `list` command.
 3. Date and time of both creation and update.
 4. Colors in the console change depending on the result of the command.
-5. Los comandos cuentan con una descripcion, y los argumentos requeridos usando `argparse`.
+5. Los comandos cuentan con una descripcion, y los argumentos requeridos usando `argparse`
 
 ## Available commands:
 
